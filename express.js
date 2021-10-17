@@ -18,13 +18,14 @@ app.get("/", (req, res) => {
 //req = request (petición) / res = response (respuesta)
 
 //IMPORTAR CLASE CONTENEDOR
-const c = require("./coderhouse_clase2/Contenedor");
+const c = require("./Contenedor");
 const d = new c();
 const f = d.leerArchivo();
 
 app.get("/productos", function (req, res, next) {
   next();
-  res.send(f);
+  let a = d.leerArchivo();
+  res.send(a);
 });
 
 app.get("/productosRandom", function (req, res, next) {
@@ -42,4 +43,4 @@ app.get("/productosRandom", function (req, res, next) {
   res.send(f[rand]);
 });
 
-app.listen(3000);
+//app.listen(3000);
