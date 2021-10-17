@@ -18,14 +18,28 @@ app.get("/", (req, res) => {
 //req = request (petición) / res = response (respuesta)
 
 //IMPORTAR CLASE CONTENEDOR
-const c = require("./coderhouse_clase2/Contenedor.js");
-
-const todos = c.getAll;
-
-console.log(todos);
+const c = require("./coderhouse_clase2/Contenedor");
+const d = new c();
+const f = d.leerArchivo();
 
 app.get("/productos", function (req, res, next) {
   next();
+  res.send(f);
+});
+
+app.get("/productosRandom", function (req, res, next) {
+  next();
+  let rand = Math.floor(Math.random() * (f.length - 0 + 1)) + 0;
+  if (rand < 0) {
+    console.log("rand menor que cero");
+  }
+  if (rand > f.length) {
+    console.log("random number mayor que array");
+  }
+  /* if (rand.isFloat()) {
+    console.log("random es de tipo float");
+  } */
+  res.send(f[rand]);
 });
 
 app.listen(3000);
