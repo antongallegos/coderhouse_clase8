@@ -2,7 +2,11 @@ const fs = require("fs");
 const { resolve } = require("path");
 
 class Contenedor {
-  productos = Array();
+  //productos = Array();
+
+  constructor(productos) {
+    this.productos = productos;
+  }
 
   addProducto(title, price, th) {
     let producto = new Object();
@@ -43,6 +47,7 @@ class Contenedor {
   leerArchivo() {
     try {
       const data = fs.readFileSync("./productos.txt");
+      this.productos = JSON.parse(data);
       return JSON.parse(data);
     } catch (err) {
       console.error(err);
