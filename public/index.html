@@ -7,14 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    <form>
+    <h1>Ingrese producto nuevo: </h1>
+    <form action="/api/productos" methos="POST">
         <label>Title</label>
-        <input/>
+        <input type="text" name="title"/> <br>
         <label>Price</label>
-        <input/>
+        <input type="number" name="price"/><br>
         <label>Thumbmail</label>
-        <input/>
-        <button>Enviar</button>
+        <input type="text" name="th"/><br>
+        <button value="submit">Enviar</button>
     </form>
 </body>
 </html>

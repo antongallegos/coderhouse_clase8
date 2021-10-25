@@ -30,8 +30,14 @@ router.get("/productos/:id", (req, res) => {
 
 //FALTA COMPLETAR
 router.post("/productos", (req, res) => {
-  let a = d.leerArchivo();
-  res.json(a);
+  d.leerArchivo();
+  let title = req.body.title;
+  let price = parseDouble(req.body.price);
+  let th = req.body.th;
+  console.log(title);
+  d.addProducto(title, price, th);
+  d.saveProd(d.getAll());
+  res.redirect("/api/productos/1");
 });
 
 router.put("/productos/:id/:title/:price/:th", (req, res) => {

@@ -127,6 +127,5 @@ p.addProducto(
 //let productos = p.getAll();
 //p.crearArchivo();
 //p.saveProd(productos);
-console.log(p.leerArchivo());
 
 module.exports = Contenedor;
