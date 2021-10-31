@@ -1,9 +1,11 @@
 {
   "name": "1",
   "version": "1.0.0",
-  "main": "ejercicio_clase4.js",
+  "main": "server.js",
   "dependencies": {
     "express": "^4.17.1",
+    "express-handlebars": "^5.3.4",
+    "handlebars": "^4.7.7",
     "moment": "^2.29.1"
   },
   "devDependencies": {

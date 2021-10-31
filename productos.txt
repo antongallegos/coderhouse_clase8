@@ -16,5 +16,23 @@
     "price": 345.67,
     "thumbmail": "https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png",
     "id": 3
+  },
+  {
+    "title": "werty",
+    "price": "12345",
+    "thumbmail": "qwertyv",
+    "id": 4
+  },
+  {
+    "title": "wertytttt",
+    "price": "123459999",
+    "thumbmail": "qwertyvtggtg",
+    "id": 5
+  },
+  {
+    "title": "ywgeduegduiwgdiw",
+    "price": "28479234729",
+    "thumbmail": "BUDBUWBEUEG",
+    "id": 6
   }
 ]

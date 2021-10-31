@@ -32,12 +32,11 @@ router.get("/productos/:id", (req, res) => {
 router.post("/productos", (req, res) => {
   d.leerArchivo();
   let title = req.body.title;
-  let price = parseDouble(req.body.price);
+  let price = req.body.price;
   let th = req.body.th;
-  console.log(title);
   d.addProducto(title, price, th);
   d.saveProd(d.getAll());
-  res.redirect("/api/productos/1");
+  res.redirect("/api/productos");
 });
 
 router.put("/productos/:id/:title/:price/:th", (req, res) => {

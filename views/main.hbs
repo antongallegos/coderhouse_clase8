@@ -1,0 +1,9 @@
+{{!-- main.hbs --}}
+<h2>List de productos</h2>
+{{#if listExist}}
+    <ul>
+        {{#each productos}}
+        <li class={{this.title}}>{{this.title}}</li>
+        {{/each}}
+    </ul>
+{{/if}}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Ingrese producto nuevo: </h1>
+    <form class="d-flex flex-column w-25" method="post" action="/api/productos">			
+        <label for="title">Titulo</label>			
+        <div class="input-group mb-2">				
+            <input type="text" id="title" name="title" class="form-control" placeholder="Titulo del producto">			
+        </div>			
+        <label for="price">Precio</label>			
+        <div class="input-group mb-2">				
+            <span class="input-group-text">$</span>				
+            <input type="text" id="price" name="price" class="form-control" placeholder="Precio del producto"> 			
+        </div>			
+        <label for="thumbnail">Foto</label>			
+        <div class="input-group mb-2">				
+            <input class="form-control" type="text" id="th" name="th" placeholder="Link a una imagen">			
+        </div>			
+        <button class="btn btn-primary mt-4 rounded-pill" type="submit">Enviar</button>		
+    </form>
+
+<h2>NO CONSIDERAR
+</h2>
+    <form action="/api/productos" methos="POST">
+        <label>Title</label>
+        <input type="text" name="title"/> <br>
+        <label>Price</label>
+        <input type="number" name="price"/><br>
+        <label>Thumbmail</label>
+        <input type="text" name="th"/><br>
+        <button value="submit">Enviar</button>
+    </form>
+</body>
+</html>
