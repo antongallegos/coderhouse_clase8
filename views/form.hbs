@@ -1,0 +1,18 @@
+<form class="d-flex flex-column w-25" method="post" action="/api/productos">			
+        <label for="title">Titulo</label>			
+        <div class="input-group mb-2">				
+            <input type="text" id="title" name="title" class="form-control" placeholder="Titulo del producto">			
+        </div>			
+        <label for="price">Precio</label>			
+        <div class="input-group mb-2">				
+            <span class="input-group-text">$</span>				
+            <input type="text" id="price" name="price" class="form-control" placeholder="Precio del producto"> 			
+        </div>			
+        <label for="thumbnail">Foto</label>			
+        <div class="input-group mb-2">				
+            <input class="form-control" type="text" id="th" name="th" placeholder="Link a una imagen">			
+        </div>			
+        <button class="btn btn-primary mt-4 rounded-pill" type="submit">Enviar</button>		
+    </form>
+
+    <a href="/productos">Ir a formulario de productos</a>

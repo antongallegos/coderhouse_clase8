@@ -34,5 +34,17 @@
     "price": "28479234729",
     "thumbmail": "BUDBUWBEUEG",
     "id": 6
+  },
+  {
+    "title": "nuevo titulo",
+    "price": "1002",
+    "thumbmail": "http://www.algo.com",
+    "id": 7
+  },
+  {
+    "title": "nuevo titulo",
+    "price": "1002",
+    "thumbmail": "http://www.algo.com",
+    "id": 8
   }
 ]

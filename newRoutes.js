@@ -36,7 +36,7 @@ router.post("/productos", (req, res) => {
   let th = req.body.th;
   d.addProducto(title, price, th);
   d.saveProd(d.getAll());
-  res.redirect("/api/productos");
+  res.redirect("/productos");
 });
 
 router.put("/productos/:id/:title/:price/:th", (req, res) => {

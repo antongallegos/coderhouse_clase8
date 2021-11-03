@@ -37,8 +37,12 @@ server.engine(
 server.set("view engine", "hbs");
 server.set("views", "./views");
 
-server.get("/", (req, res) => {
+server.get("/productos", (req, res) => {
   res.render("main", { productos: f, listExist: true });
+});
+
+server.get("/form", (req, res) => {
+  res.render("form");
 });
 
 //INDICAMOS EL PUERTO QUE ESCUCHA EXPRESS

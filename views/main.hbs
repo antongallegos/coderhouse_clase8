@@ -1,9 +1,21 @@
 {{!-- main.hbs --}}
 <h2>List de productos</h2>
 {{#if listExist}}
-    <ul>
-        {{#each productos}}
-        <li class={{this.title}}>{{this.title}}</li>
-        {{/each}}
-    </ul>
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Thumbmail</th>
+    </tr>
+    {{#each productos}}
+    <tr>
+        <td>{{this.title}}</td>
+        <td>{{this.price}}</td>
+        <td>{{this.thumbmail}}</td>
+    </tr>
+    {{/each}}
+    
+</table>
 {{/if}}
+
+<a href="/form">Ir a formulario de productos</a>
