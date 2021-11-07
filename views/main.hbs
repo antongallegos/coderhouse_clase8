@@ -19,3 +19,20 @@
 {{/if}}
 
 <a href="/form">Ir a formulario de productos</a>
+
+<br><br><br>
+    <form onsubmit="return addProducto(this)">
+        <input type="text" id="title" placeholder="Titulo del producto">			
+        <input type="text" id="price" placeholder="Precio del producto"> 			
+        <input type="text" id="th" placeholder="Link a una imagen">					
+        <input type="submit" value="Enviar">		
+    </form>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Thumbmail</th>
+        </tr>
+    <div id='productos'></div>
+</table>

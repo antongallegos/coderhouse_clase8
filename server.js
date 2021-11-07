@@ -1,7 +1,23 @@
 //INICIAMOS SERVIDOR CON EXPRESS
 const express = require("express");
 const handlebars = require("express-handlebars");
+const { Server: HTTPServer } = require("http");
+const { Server: SocketServer } = require("socket.io");
+const { getProductos } = require("./models/productos");
+
 const server = express();
+
+//CREAMOS CONEXIÒN A SOCKET
+const httpServer = new HTTPServer(server);
+const io = new SocketServer(httpServer);
+
+//CREAMOS MENSAJE DE CONEXIÒN
+io.on("connection", (socket) => {
+  console.log("Nuevo cliente conectado");
+
+  const productos = getProductos();
+  socket.emit("productos", productos);
+});
 
 //PARA QUE EL SERVIDOR PUEDA INTERPRETAR EN FORMA AUTOMATICA
 //MENSAJES DE TIPO JSON EN CORMATO URLENCODE
@@ -46,6 +62,19 @@ server.get("/form", (req, res) => {
 });
 
 //INDICAMOS EL PUERTO QUE ESCUCHA EXPRESS
-server.listen(8080, () => {
+/* server.listen(8080, () => {
   console.log("listen on port 8080");
+}); */
+
+//AL TRABAJAR CON SOCKET SE MODIFICA EL PUERTO Y EL ESCUCHA DEBE SALIR DE HTTP
+const PORT = 3000;
+const connectedServer = httpServer.listen(PORT, () => {
+  console.log(
+    `Servidor HTTP con Websocket escuchando en el puerto ${
+      connectedServer.address().port
+    }`
+  );
 });
+connectedServer.on("error", (error) =>
+  console.log(`Error en servidor: ${error}`)
+);
