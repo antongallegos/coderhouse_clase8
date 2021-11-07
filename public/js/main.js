@@ -9,15 +9,14 @@ socket.on("productos", (data) => {
 const renderProductos = (productos) => {
   const html = productos
     .map((element, index) => {
-      console.log("element");
-      return array.forEach((element) => {
-        `<tr>
-        <td>${element.title}</td>
-        <td>${element.title}</td>
-        <td></td>
-        <td></td>
-    </tr>`ZZ
-      });
+      return `
+        <tr>
+            <td>${index}</td>
+            <td>${element.title}</td>
+            <td>${element[0].price}</td>
+            <td>${element[0].thumbmail}</td>
+        </tr>
+        `;
     })
     .join(" ");
   console.log(html);
