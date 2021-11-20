@@ -12,10 +12,11 @@ const httpServer = new HTTPServer(server);
 const io = new SocketServer(httpServer);
 
 //CREAMOS MENSAJE DE CONEXIÒN
-io.on("connection", (socket) => {
+io.on("connection", async (socket) => {
   console.log("Nuevo cliente conectado");
 
-  const productos = getProductos();
+  const productos = await getProductos();
+  console.log(productos);
   socket.emit("productos", productos);
 });
 
