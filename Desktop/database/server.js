@@ -1,30 +1,28 @@
 const express = require("express");
 const app = express();
 
-//IMPORTAMOS BASE DE DATOS PRODUCTOS
+//IMPORTAMOS CLASES
 import Productos from "./ecommerce/Productos";
+import Mensajes from "./ecommerce/Mensajes";
 //import Productos from "./Productos";
-import { mysql as options } from "./ecommerce/options";
-//import { sqlite3 as options } from "./ecommerce/options";
+import { mysql } from "./ecommerce/options";
+import { sqlite3 } from "./ecommerce/options";
 
 const arrayProductos = [
   {
     title: "Escuadra",
     price: 123.45,
-    thumbmail:
-      "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png",
+    thumbmail: "https://cdn3.iconfinder.com/",
   },
   {
     title: "Calculadora",
     price: 234.56,
-    thumbmail:
-      "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png",
+    thumbmail: "https://cdn3.iconfinder.com/",
   },
   {
     title: "Globo Terráqueo",
     price: 345.67,
-    thumbmail:
-      "https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png",
+    thumbmail: "https://cdn3.iconfinder.com/",
   },
   {
     title: "werty",
@@ -53,15 +51,26 @@ const arrayProductos = [
   },
 ];
 
-const productos = new Productos(options);
+const productos = new Productos(mysql);
 productos
   .crearTabla()
-  .then(() => console.log("Tabla Animales creada con éxito"))
+  .then(() => console.log("Tabla Productos creada con éxito"))
   .catch((err) => {
     console.log(err);
   })
   .finally(() => {
     productos.cerrarDB();
+  });
+
+const mensajes = new Mensajes(sqlite3);
+mensajes
+  .crearTabla()
+  .then(() => console.log("Tabla Mensajes creada con éxito"))
+  .catch((err) => {
+    console.log(err);
+  })
+  .finally(() => {
+    mensajes.cerrarDB();
   });
 
 app.listen(8080, () => {
