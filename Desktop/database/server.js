@@ -11,17 +11,17 @@ import { sqlite3 } from "./ecommerce/options";
 const arrayProductos = [
   {
     title: "Escuadra",
-    price: 123.45,
+    price: "12345",
     thumbmail: "https://cdn3.iconfinder.com/",
   },
   {
     title: "Calculadora",
-    price: 234.56,
+    price: "23456",
     thumbmail: "https://cdn3.iconfinder.com/",
   },
   {
     title: "Globo Terráqueo",
-    price: 345.67,
+    price: "34567",
     thumbmail: "https://cdn3.iconfinder.com/",
   },
   {
@@ -51,10 +51,24 @@ const arrayProductos = [
   },
 ];
 
+const arrayMensajes = [
+  {
+    mensaje: "Esto es un mensaje",
+  },
+];
 const productos = new Productos(mysql);
 productos
   .crearTabla()
   .then(() => console.log("Tabla Productos creada con éxito"))
+  .then(() => {
+    return productos.insertar(arrayProductos);
+  })
+  .then(() => {
+    return productos.listar();
+  })
+  .then((listado) => {
+    console.table(listado);
+  })
   .catch((err) => {
     console.log(err);
   })
@@ -66,6 +80,15 @@ const mensajes = new Mensajes(sqlite3);
 mensajes
   .crearTabla()
   .then(() => console.log("Tabla Mensajes creada con éxito"))
+  .then(() => {
+    return mensajes.insertar(arrayMensajes);
+  })
+  .then(() => {
+    return mensajes.listar();
+  })
+  .then((listado) => {
+    console.table(listado);
+  })
   .catch((err) => {
     console.log(err);
   })

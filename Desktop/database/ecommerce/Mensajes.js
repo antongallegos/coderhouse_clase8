@@ -17,6 +17,10 @@ class Mensajes {
   cerrarDB() {
     return this.knex.destroy();
   }
+
+  insertar(mensajes) {
+    return this.knex("mensajes").insert(mensajes);
+  }
 }
 
 //module.exports.Productos = Productos;

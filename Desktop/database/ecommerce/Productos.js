@@ -19,6 +19,14 @@ class Productos {
   cerrarDB() {
     return this.knex.destroy();
   }
+
+  insertar(productos) {
+    return this.knex("productos").insert(productos);
+  }
+
+  listar() {
+    return this.knex("productos").select("*");
+  }
 }
 
 //module.exports.Productos = Productos;
